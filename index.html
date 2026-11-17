@@ -1,0 +1,2466 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f7f4">
+    <meta name="description" content="Samar Shamloo is a product designer working across enterprise UX, AI-powered products and complex digital journeys. Explore selected product work and UI explorations.">
+    <meta property="og:title" content="Samar Shamloo — Product Designer">
+    <meta property="og:description" content="Thoughtful digital experiences, designed from complexity to clarity.">
+    <meta property="og:type" content="website">
+    <title>Samar Shamloo — Product Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8f7f4;
+            --paper: #fff;
+            --ink: #212323;
+            --muted: #737672;
+            --line: #e5e4de;
+            --cobalt: #395de9;
+            --lav: #e9e8ff;
+            --peach: #f9d9c8;
+            --mint: #dbece4;
+            --radius: 22px;
+            --max: 1160px
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'DM Sans', Arial, sans-serif;
+            margin: 0;
+            -webkit-font-smoothing: antialiased
+        }
+
+        body.dialog-open {
+            overflow: hidden
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer
+        }
+
+        a:focus-visible, button:focus-visible {
+            outline: 3px solid var(--cobalt);
+            outline-offset: 4px
+        }
+
+        ::selection {
+            background: #ccd4ff;
+            color: #111
+        }
+
+        .wrap {
+            width: min(var(--max), calc(100% - 76px));
+            margin: auto
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--muted)
+        }
+
+        h1, h2, h3, p {
+            margin-top: 0
+        }
+
+        h1, h2, h3 {
+            font-family: 'Manrope', 'DM Sans', Arial, sans-serif
+        }
+
+        p {
+            line-height: 1.7
+        }
+
+        h2 {
+            letter-spacing: -.06em
+        }
+
+        small {
+            color: var(--muted)
+        }
+
+        .site-header {
+            height: 83px;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            background: rgba(248, 247, 244, .88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(222, 222, 215, .65)
+        }
+
+        .nav {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px
+        }
+
+        .wordmark {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            font-weight: 800;
+            font-size: 17px;
+            letter-spacing: -.07em;
+            font-family: Manrope, sans-serif
+        }
+
+        .wm-dot {
+            width: 27px;
+            height: 27px;
+            border-radius: 50%;
+            background: var(--cobalt);
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 800
+        }
+
+        .desktop-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #555a59
+        }
+
+        .desktop-links a:hover {
+            color: var(--cobalt)
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 11px;
+            border-radius: 999px;
+            padding: 14px 22px;
+            font-weight: 750;
+            font-size: 13px;
+            border: 1px solid transparent;
+            transition: transform .22s, background .22s, color .22s
+        }
+
+        .btn:hover {
+            transform: translateY(-2px)
+        }
+
+        .btn-primary {
+            background: var(--ink);
+            color: #fff
+        }
+
+        .btn-primary:hover {
+            background: #394aeb
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--ink);
+            border-color: #c7c9c4
+        }
+
+        .btn-outline:hover {
+            background: white
+        }
+
+        .btn-white {
+            background: white;
+            color: #1e2430
+        }
+
+        .arrow {
+            font-size: 17px;
+            line-height: 1
+        }
+
+        .menu-button {
+            display: none;
+            border: 1px solid var(--line);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff;
+            font-size: 23px
+        }
+
+        .mobile-menu {
+            display: none
+        }
+
+        .hero {
+            padding: 93px 0 102px;
+            display: grid;
+            grid-template-columns:1.04fr .96fr;
+            align-items: center;
+            gap: 45px;
+            min-height: 680px
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 3
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            border: 1px solid #e1e1dc;
+            border-radius: 40px;
+            background: white;
+            padding: 9px 13px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #515955
+        }
+
+        .pulse {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #36a77c;
+            box-shadow: 0 0 0 4px #d6f0e5
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 6.1vw, 84px);
+            font-weight: 800;
+            letter-spacing: -.087em;
+            line-height: 1.075;
+            margin: 26px 0 25px
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--cobalt)
+        }
+
+        .hero-deck {
+            font-size: 17px;
+            color: #343434;
+            line-height: 1.77;
+            max-width: 480px;
+            margin-bottom: 28px
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .micro-proof {
+            display: flex;
+            gap: 26px;
+            align-items: center;
+            margin-top: 54px
+        }
+
+        .micro-proof > div {
+            padding-right: 25px;
+            border-right: 1px solid #d8d8d3
+        }
+
+        .micro-proof > div:last-child {
+            border: 0
+        }
+
+        .micro-proof strong {
+            font: 800 28px Manrope, sans-serif;
+            letter-spacing: -.06em;
+            display: block;
+            line-height: 1
+        }
+
+        .micro-proof span {
+            display: block;
+            margin-top: 6px;
+            font-size: 13px;
+            color: #757977;
+            line-height: 1.45
+        }
+
+        .hero-art {
+            position: relative;
+            height: 515px;
+            min-width: 0
+        }
+
+        .art-bg {
+            position: absolute;
+            inset: 50px 0 30px 24px;
+            background: #e5e5ff;
+            border-radius: 34px;
+            transform: rotate(-3deg)
+        }
+
+        .art-orbit {
+            position: absolute;
+            right: -22px;
+            top: 18px;
+            width: 113px;
+            height: 113px;
+            border: 1px solid #bdb6f6;
+            border-radius: 50%
+        }
+
+        .art-orbit:after {
+            content: '';
+            position: absolute;
+            inset: 18px;
+            border: 1px solid #bdb6f6;
+            border-radius: 50%
+        }
+
+        .card-float {
+            position: absolute;
+            box-shadow: 0 26px 70px #2727561a;
+            overflow: hidden;
+            border: 6px solid white;
+            background: #f3f1ef
+        }
+
+        .card-float img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .card-float-a {
+            width: 72%;
+            height: 280px;
+            top: 15px;
+            right: 17px;
+            border-radius: 25px;
+            transform: rotate(5deg)
+        }
+
+        .card-float-b {
+            width: 61%;
+            height: 258px;
+            left: 1px;
+            top: 192px;
+            border-radius: 25px;
+            transform: rotate(-8deg)
+        }
+
+        .card-float-c {
+            width: 41%;
+            height: 155px;
+            right: 0;
+            bottom: 0;
+            border-radius: 24px;
+            transform: rotate(8deg)
+        }
+
+        .card-float:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            border-radius: inherit;
+            box-shadow: inset 0 0 22px #00000012
+        }
+
+        .fallback-tile {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            color: #44465a;
+            background: linear-gradient(140deg, #dbd8fc, #dddaf6);
+            font: 800 24px Manrope;
+            letter-spacing: -.06em
+        }
+
+        .card-float-b .fallback-tile {
+            background: linear-gradient(135deg, #ecdcd2, #eac8b8)
+        }
+
+        .card-float-c .fallback-tile {
+            background: linear-gradient(135deg, #b4e2df, #cde5ef)
+        }
+
+        .card-float img {
+            position: relative;
+            z-index: 2
+        }
+
+        .floating-note {
+            position: absolute;
+            z-index: 5;
+            left: 20px;
+            top: 80px;
+            background: #fff;
+            border: 1px solid #eae8e4;
+            border-radius: 15px;
+            padding: 15px 18px;
+            box-shadow: 0 12px 35px #14141413;
+            transform: rotate(-5deg);
+            font-size: 12px;
+            color: #727778
+        }
+
+        .floating-note b {
+            font-size: 14px;
+            color: #24262a;
+            display: block
+        }
+
+        .badge-spark {
+            position: absolute;
+            right: 40px;
+            bottom: 20px;
+            z-index: 6;
+            background: #202624;
+            color: white;
+            border: 5px solid white;
+            border-radius: 40px;
+            width: 65px;
+            height: 65px;
+            display: grid;
+            place-items: center;
+            font-size: 28px
+        }
+
+        .trust {
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            padding: 26px 0
+        }
+
+        .trust-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px
+        }
+
+        .trust-label {
+            font-size: 13px;
+            color: #656966;
+            line-height: 1.6;
+            max-width: 142px
+        }
+
+        .client-list {
+            display: flex;
+            flex: 1;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center
+        }
+
+        .client-list span {
+            font: 800 clamp(13px, 1.5vw, 18px) Manrope, sans-serif;
+            letter-spacing: -.06em;
+            color: var(--ink)
+        }
+
+        .section {
+            padding: 112px 0 0
+        }
+
+        .section-top {
+            display: block;
+            width: 100%;
+            margin-bottom: 41px
+        }
+
+        .section-top h2 {
+            font-size: clamp(34px, 4vw, 54px);
+            line-height: 1.13;
+            margin: 15px 0 0;
+            max-width: 680px
+        }
+
+        .section-top p {
+            font-size: 16px;
+            color: var(--muted);
+            margin-bottom: 4px
+        }
+
+        .num-prefix {
+            color: var(--cobalt);
+            font-weight: 800;
+            margin-right: 8px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns:1.02fr .98fr;
+            gap: 22px
+        }
+
+        .product-card {
+            overflow: hidden;
+            border-radius: var(--radius);
+            background: white;
+            border: 1px solid #e8e8e4;
+            display: flex;
+            flex-direction: column;
+            transition: transform .3s, box-shadow .3s
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 46px #2424240f
+        }
+
+        .product-card:first-child {
+            grid-row: span 2
+        }
+
+        .product-card img {
+            width: 100%
+        }
+
+        .product-art {
+            position: relative;
+            overflow: hidden;
+            background: #d9dafa;
+            display: block;
+            isolation: isolate
+        }
+
+        .product-art.irancell {
+            background: #eaeafb
+        }
+
+        .product-art.ai {
+            background: #d9e8e7
+        }
+
+        .product-art.mahak {
+            background: #f8e3d5
+        }
+
+        .pa-label {
+            position: absolute;
+            top: 24px;
+            left: 25px;
+            color: #2e3045;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: 11px;
+            font-weight: 700
+        }
+
+        .pa-label:before {
+            content: '';
+            height: 7px;
+            width: 7px;
+            border-radius: 100%;
+            background: currentColor
+        }
+
+        .pa-giant {
+            font: 800 120px Manrope, sans-serif;
+            line-height: 1;
+            letter-spacing: -.1em;
+            position: absolute;
+            bottom: -19px;
+            left: 18px;
+            color: #666be3;
+            opacity: .11;
+            white-space: nowrap
+        }
+
+        .irancell .pa-giant {
+            font-size: 205px;
+            transform: rotate(-13deg);
+            bottom: 60px;
+            left: -25px
+        }
+
+        .ai .pa-giant {
+            color: #1d8e83;
+            font-size: 124px;
+            left: 18px;
+            bottom: -12px
+        }
+
+        .mahak .pa-giant {
+            color: #ea916b;
+            font-size: 134px
+        }
+
+        .irancell .circle {
+            width: 300px;
+            height: 300px;
+            border: 50px solid #6964e1;
+            border-radius: 50%;
+            position: absolute;
+            top: 125px;
+            right: -65px;
+            box-shadow: 0 0 0 42px #dcdaf8;
+            transform: rotate(-24deg)
+        }
+
+        .irancell .line-arrows {
+            position: absolute;
+            top: 90px;
+            left: 72px;
+            width: 100px;
+            height: 320px;
+            border-left: 2px dashed #aba6ed;
+            border-radius: 50%;
+            transform: rotate(22deg)
+        }
+
+        .ai .circle {
+            width: 184px;
+            height: 184px;
+            border-radius: 36px;
+            position: absolute;
+            top: 65px;
+            right: 38px;
+            background: #8ac5b9;
+            transform: rotate(-23deg);
+            box-shadow: -52px 40px 0 #cee8df
+        }
+
+        .ai .circle:after {
+            content: '✳';
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            font-size: 91px;
+            color: #267e71
+        }
+
+        .mahak .circle {
+            width: 205px;
+            height: 205px;
+            border-radius: 50%;
+            position: absolute;
+            right: 38px;
+            top: 80px;
+            background: #f4ba9b;
+            box-shadow: -66px -28px 0 #f8d4bd
+        }
+
+        .mahak .circle:after {
+            content: '♡';
+            color: #bc613d;
+            font-size: 124px;
+            display: grid;
+            place-items: center;
+            height: 100%;
+            font-family: Arial
+        }
+
+        .art-descriptor {
+            position: absolute;
+            bottom: 29px;
+            left: 25px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #4b4d60;
+            z-index: 4
+        }
+
+        .ai .art-descriptor {
+            color: #29756e
+        }
+
+        .mahak .art-descriptor {
+            color: #975f4b
+        }
+
+        .product-copy {
+            padding: 27px 30px 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column
+        }
+
+        .project-meta {
+            font-size: 12px;
+            letter-spacing: .12em;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--cobalt)
+        }
+
+        .product-copy h3 {
+            font-size: 27px;
+            line-height: 1.2;
+            letter-spacing: -.055em;
+            margin: 11px 0
+        }
+
+        .product-copy p {
+            font-size: 15px;
+            color: #686c68;
+            max-width: 510px;
+            line-height: 1.7;
+            flex: 1;
+            margin-bottom: 20px
+        }
+
+        .card-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #ededeb;
+            padding-top: 19px;
+            gap: 12px
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px
+        }
+
+        .tag {
+            font-size: 11px;
+            color: #656a65;
+            background: #f3f4f1;
+            border-radius: 99px;
+            padding: 7px 10px;
+            white-space: nowrap
+        }
+
+        .open-detail {
+            border: none;
+            background: none;
+            color: var(--cobalt);
+            font-size: 16px;
+            font-weight: 800;
+            white-space: nowrap;
+            padding: 6px 0
+        }
+
+        .open-detail:hover {
+            text-decoration: underline
+        }
+
+        .more-work {
+            display: grid;
+            grid-template-columns:repeat(3, 1fr);
+            margin-top: 24px;
+            gap: 16px
+        }
+
+        .work-mini {
+            padding: 22px 25px;
+            border: 1px solid var(--line);
+            border-radius: 19px;
+            background: #fff
+        }
+
+        .work-mini h3 {
+            font-size: 20px;
+            letter-spacing: -.04em;
+            margin: 9px 0
+        }
+
+        .work-mini p {
+            font-size: 15px;
+            color: #777b77;
+            line-height: 1.6;
+            margin: 0
+        }
+
+        .work-mini .eyebrow {
+            font-size: 11px;
+            color: var(--cobalt)
+        }
+
+        .visual-area {
+            background: #22262a;
+            color: #fff;
+            margin-top: 108px;
+            padding: 104px 0 112px
+        }
+
+        .visual-area .eyebrow {
+            color: #a5aab6
+        }
+
+        .visual-area .section-top h2 {
+            color: white
+        }
+
+        .visual-area .section-top p {
+            color: #a7aab1
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns:repeat(2, 1fr);
+            gap: 22px
+        }
+
+        .visual-card {
+            display: block;
+            background: #30353a;
+            border: 1px solid #42464a;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform .2s, border-color .2s
+        }
+
+        .visual-card:hover {
+            transform: translateY(-4px);
+            border-color: #9699a9
+        }
+
+        .visual-img {
+            height: auto;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(125deg, #dfdcfa, #bfcaf0)
+        }
+
+        .visual-card:nth-child(2) .visual-img {
+            background: linear-gradient(125deg, #d8f6ec, #9fcbd8)
+        }
+
+        .visual-card:nth-child(3) .visual-img {
+            background: linear-gradient(125deg, #d0d9f8, #bac5f7)
+        }
+
+        .visual-card:nth-child(4) .visual-img {
+            background: linear-gradient(125deg, #c3e3ef, #8cafd5)
+        }
+
+        .visual-img .fallback-title {
+            font: 800 52px Manrope;
+            letter-spacing: -.07em;
+            color: #4b5085;
+            display: none;
+        }
+
+        .visual-card:nth-child(2) .fallback-title {
+            color: #31808e
+        }
+
+        .visual-card:nth-child(4) .fallback-title {
+            color: #356eab
+        }
+
+        .visual-img img {
+            position: relative;
+            width: 100%;
+        }
+
+        .visual-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            gap: 12px
+        }
+
+        .visual-info h3 {
+            font-size: 18px;
+            letter-spacing: -.035em;
+            margin: 0 0 3px
+        }
+
+        .visual-info p {
+            font-size: 15px;
+            color: #a8afb4;
+            margin: 0
+        }
+
+        .visual-info .out {
+            color: #fff;
+            border: 1px solid #727981;
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center
+        }
+
+        .visual-area .disclaimer {
+            margin-top: 23px;
+            color: #adb1b7;
+            font-size: 12px
+        }
+
+        .all-shots {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 18px;
+            border-bottom: 1px solid #8c9296;
+            padding-bottom: 7px;
+            margin-top: 29px
+        }
+
+        .all-shots:hover {
+            border-color: #fff
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns:.95fr 1.05fr;
+            gap: 95px;
+            align-items: center
+        }
+
+        .about-copy h2 {
+            font-size: clamp(36px, 4.5vw, 55px);
+            margin: 13px 0 25px
+        }
+
+        .about-copy p {
+            color: #343434;
+            font-size: 16px;
+            line-height: 1.8
+        }
+
+        .about-portrait {
+            height: 420px;
+            border-radius: 28px;
+            background: #e4e9f0;
+            overflow: hidden;
+            position: relative;
+            display: grid;
+            place-items: center
+        }
+
+        .about-portrait:before {
+            content: '';
+            width: 290px;
+            height: 290px;
+            background: #cad8cf;
+            border-radius: 50%;
+            position: absolute;
+            top: 48px;
+            right: 55px
+        }
+
+        .portrait-img {
+            position: relative;
+            z-index: 2;
+            width: 185px;
+            height: 185px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            border: 10px solid white;
+            box-shadow: 0 20px 45px #465a4f25
+        }
+
+        .about-portrait .type-overlay {
+            position: absolute;
+            bottom: 24px;
+            left: 31px;
+            right: 31px;
+            z-index: 3;
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 12px
+        }
+
+        .type-overlay b {
+            font: 800 35px Manrope;
+            letter-spacing: -.075em;
+            line-height: 1.1
+        }
+
+        .type-overlay span {
+            font-size: 14px;
+            font-weight: 600;
+            color: #272b2a;
+            max-width: 110px;
+            line-height: 1.4
+        }
+
+        .approach-list {
+            border-top: 1px solid var(--line);
+            margin-top: 30px
+        }
+
+        .approach-row {
+            display: grid;
+            grid-template-columns:100px 1fr;
+            gap: 12px;
+            padding: 17px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .approach-row strong {
+            font-size: 14px
+        }
+
+        .approach-row span {
+            font-size: 14px;
+            color: #343434;
+            line-height: 1.6
+        }
+
+        .experience {
+            padding-bottom: 106px
+        }
+
+        .exp-main {
+            display: grid;
+            grid-template-columns:1fr 2fr;
+            gap: 30px;
+            border-top: 1px solid #d9dad5;
+            padding: 30px 0;
+            border-bottom: 1px solid #d9dad5
+        }
+
+        .exp-date {
+            font-size: 12px;
+            color: #7e827d
+        }
+
+        .exp-detail h3 {
+            font-size: 24px;
+            letter-spacing: -.05em;
+            margin: 0
+        }
+
+        .exp-detail .exp-role {
+            margin: 8px 0;
+            color: var(--cobalt);
+            font-size: 13px;
+            font-weight: 800
+        }
+
+        .exp-detail p {
+            font-size: 16px;
+            color: #343434;
+            max-width: 670px;
+            margin-bottom: 0
+        }
+
+        .credentials {
+            display: grid;
+            grid-template-columns:repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 38px
+        }
+
+        .credentials h3 {
+            font-size: 14px;
+            letter-spacing: -.03em
+        }
+
+        .credentials p {
+            font-size: 13px;
+            color: #757a75;
+            margin-bottom: 0
+        }
+
+        .credentials strong {
+            color: #383d3a
+        }
+
+        .contact-block {
+            background: #dfe2fb;
+            padding: 105px 0 93px
+        }
+
+        .contact-inside {
+            text-align: center
+        }
+
+        .contact-inside h2 {
+            font-size: clamp(40px, 7vw, 88px);
+            line-height: 1.09;
+            letter-spacing: -.085em;
+            margin: 14px auto 26px;
+            max-width: 900px
+        }
+
+        .contact-inside h2 em {
+            font-style: normal;
+            color: var(--cobalt)
+        }
+
+        .contact-inside p {
+            font-size: 15px;
+            color: #696b77;
+            margin-bottom: 28px
+        }
+
+        .contact-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px
+        }
+
+        .footer {
+            padding: 29px 0
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 22px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #626662
+        }
+
+        .footer small {
+            font-size: 11px
+        }
+
+        /* Accessible case-study dialogs */
+        dialog.case-dialog {
+            padding: 0;
+            border: 0;
+            border-radius: 24px;
+            background: #fff;
+            box-shadow: 0 38px 100px #10111e40;
+            width: min(940px, calc(100% - 32px));
+            color: var(--ink);
+        }
+
+        dialog.case-dialog::backdrop {
+            background: #111523b0;
+            backdrop-filter: blur(8px)
+        }
+
+        .dialog-head {
+            padding: 38px 42px 30px;
+            border-bottom: 1px solid #e9ebe8;
+            position: sticky;
+            top: 0;
+            background: white;
+        }
+
+
+
+        .dialog-head p {
+            color: #727773;
+            font-size: 13px;
+            margin: 0
+        }
+
+        .dialog-close {
+            position: absolute;
+            top: 25px;
+            right: 28px;
+            border: 1px solid #dedfda;
+            border-radius: 50%;
+            width: 39px;
+            height: 39px;
+            background: #fff;
+            font-size: 22px;
+            display: grid;
+            place-items: center;
+            outline: none !important;
+        }
+
+        .dialog-body {
+            padding: 30px 42px 44px;
+            max-height: min(86vh, 850px);
+            overflow: auto;
+
+            &::-webkit-scrollbar {
+                width: 10px;
+                height: 10px;
+                transform: translateX(-20px);
+            }
+
+            &::-webkit-scrollbar-track {
+                background: #edf2f7;
+                border-radius: 8px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: #718096;
+                border-radius: 8px;
+                border: 2px solid #edf2f7;
+            }
+        }
+
+        .dialog-body h2 {
+            font-size: 38px;
+            letter-spacing: -.07em;
+            margin: 0;
+            margin-bottom: 26px;
+        }
+
+        .dialog-body h3 {
+            font-size: 24px;
+            margin: 26px 0 8px
+        }
+
+        .dialog-body h4 {
+            font-size: 23px;
+            margin: 26px 0 8px
+        }
+
+        .dialog-body h5 {
+            font-size: 20px;
+            margin: 26px 0 8px
+        }
+
+        .dialog-body p, .dialog-body li {
+            color: #242424;
+            font-size: 18px;
+            line-height: 1.8
+        }
+
+        .dialog-body ul {
+            padding-left: 20px
+        }
+
+        .dialog-body img {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .dialog-body {
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 1.5rem 0 2rem;
+                font-size: 0.95rem;
+            }
+
+            th, td {
+                text-align: left;
+                padding: 0.75rem 1rem;
+                border: 1px solid #e5e7eb;
+                vertical-align: top;
+            }
+
+            th {
+                background: #f8f9fa;
+                font-weight: 650;
+            }
+
+            tr:nth-child(even) td {
+                background: #fafafa;
+            }
+        }
+
+        .dialog-body .meta {
+            margin-top: 24px;
+            margin-bottom: 24px;
+
+            span {
+                display: block;
+                line-height: 1.6;
+            }
+        }
+
+        .dialog-body hr {
+            margin-top: 32px;
+            border: 0;
+            border-top: 1px solid #e8ece8;
+        }
+
+        .dialog-body img + img {
+            margin-top: 24px;
+        }
+
+        .dialog-caption {
+            background: #f3f5f2;
+            border-radius: 12px;
+            padding: 13px 16px;
+            color: #6f7470;
+            font-size: 12px
+        }
+
+        .dialog-cta {
+            display: inline-flex;
+            margin-top: 10px;
+            color: var(--cobalt);
+            font-weight: 800;
+            font-size: 13px
+        }
+
+        @media (max-width: 980px) {
+            .hero {
+                grid-template-columns:1fr 1fr;
+                gap: 17px
+            }
+
+            .hero h1 {
+                font-size: clamp(46px, 6vw, 70px)
+            }
+
+            .hero-art {
+                height: 420px
+            }
+
+            .card-float-a {
+                height: 210px
+            }
+
+            .card-float-b {
+                height: 214px;
+                top: 160px
+            }
+
+            .card-float-c {
+                height: 120px
+            }
+
+            .floating-note {
+                top: 58px
+            }
+
+            .irancell .circle {
+                right: -119px
+            }
+
+
+
+            .product-copy {
+                padding: 23px
+            }
+
+            .about-grid {
+                gap: 50px
+            }
+        }
+
+        @media (max-width: 760px) {
+            .wrap {
+                width: min(100% - 40px, 600px)
+            }
+
+            .site-header {
+                height: 70px
+            }
+
+            .desktop-links {
+                display: none
+            }
+
+            .nav-right > .btn {
+                display: none
+            }
+
+            .menu-button {
+                display: inline-grid;
+                place-items: center
+            }
+
+            .mobile-menu {
+                display: none;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 70px;
+                background: #f8f7f4;
+                border-bottom: 1px solid var(--line);
+                padding: 12px 20px 24px;
+                box-shadow: 0 24px 30px #00000010
+            }
+
+            .mobile-menu.open {
+                display: grid;
+                gap: 8px
+            }
+
+            .mobile-menu a {
+                padding: 12px;
+                border-radius: 10px;
+                font-size: 14px;
+                font-weight: 700
+            }
+
+            .mobile-menu a:hover {
+                background: #eeefe9
+            }
+
+            .hero {
+                display: flex;
+                flex-direction: column;
+                gap: 35px;
+                padding: 70px 0 85px;
+                min-height: unset
+            }
+
+            .hero-copy {
+                width: 100%
+            }
+
+            .hero h1 {
+                font-size: clamp(48px, 10.5vw, 73px);
+                max-width: 640px
+            }
+
+            .hero-deck {
+                font-size: 15px
+            }
+
+            .micro-proof {
+                margin-top: 37px
+            }
+
+            .hero-art {
+                height: 385px;
+                width: min(100%, 480px)
+            }
+
+            .trust-inner {
+                display: block
+            }
+
+            .trust-label {
+                max-width: none;
+                margin-bottom: 15px
+            }
+
+            .client-list {
+                justify-content: flex-start;
+                gap: 16px 25px
+            }
+
+            .section {
+                padding-top: 83px
+            }
+
+            .section-top {
+                display: block;
+                margin-bottom: 30px
+            }
+
+            .section-top p {
+                margin-top: 14px
+            }
+
+            .product-grid {
+                display: grid;
+                grid-template-columns:1fr
+            }
+
+            .product-card:first-child {
+                grid-row: auto
+            }
+
+            /*.product-card:first-child .product-art, .product-art {
+                min-height: 290px
+            }*/
+
+            .product-copy h3 {
+                font-size: 25px
+            }
+
+            .more-work {
+                grid-template-columns:1fr
+            }
+
+            .visual-area {
+                padding: 82px 0;
+                margin-top: 83px
+            }
+
+            .visual-grid {
+                gap: 15px
+            }
+
+            .visual-img {
+                height: 195px
+            }
+
+            .visual-img .fallback-title {
+                font-size: 35px
+            }
+
+            .about-grid {
+                grid-template-columns:1fr;
+                gap: 30px
+            }
+
+            .about-portrait {
+                height: 365px;
+                order: -1
+            }
+
+            .exp-main {
+                grid-template-columns:1fr;
+                gap: 12px
+            }
+
+            .credentials {
+                grid-template-columns:1fr 1fr
+            }
+
+            .contact-block {
+                padding: 77px 0
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: start
+            }
+        }
+
+        @media (max-width: 520px) {
+            .hero-art {
+                height: 325px
+            }
+
+            .card-float-a {
+                width: 72%;
+                height: 175px
+            }
+
+            .card-float-b {
+                width: 63%;
+                height: 170px;
+                top: 133px
+            }
+
+            .card-float-c {
+                height: 106px;
+                bottom: 0
+            }
+
+            .floating-note {
+                top: 47px;
+                left: 0;
+                padding: 10px 12px
+            }
+
+            .floating-note b {
+                font-size: 12px
+            }
+
+            .badge-spark {
+                width: 48px;
+                height: 48px;
+                font-size: 19px;
+                bottom: 12px
+            }
+
+            .hero h1 {
+                font-size: clamp(43px, 11.6vw, 60px)
+            }
+
+            .micro-proof {
+                gap: 13px
+            }
+
+            .micro-proof > div {
+                padding-right: 13px
+            }
+
+            .micro-proof strong {
+                font-size: 22px
+            }
+
+            .micro-proof span {
+                font-size: 9px
+            }
+
+            .section-top h2 {
+                font-size: 37px
+            }
+
+            .visual-grid {
+                grid-template-columns:1fr
+            }
+
+            .visual-img {
+                height: 220px
+            }
+
+            .card-bottom {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .open-detail {
+                margin-top: 4px
+            }
+
+            .credentials {
+                grid-template-columns:1fr
+            }
+
+            .dialog-head {
+                padding: 30px 24px 21px
+            }
+
+            .dialog-head h2 {
+                font-size: 29px
+            }
+
+            .dialog-body {
+                padding: 21px 24px 31px
+            }
+
+            .dialog-close {
+                right: 16px;
+                top: 17px
+            }
+
+            .about-portrait {
+                height: 310px
+            }
+
+            .about-portrait .type-overlay b {
+                font-size: 28px
+            }
+
+            .contact-actions .btn {
+                width: 100%
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *, *:before, *:after {
+                transition: none !important;
+                animation: none !important
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <div class="wrap nav"><a class="wordmark" href="#top" aria-label="Samar Shamloo Home"><span class="wm-dot">S</span>
+        Samar.</a>
+        <nav class="desktop-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#visuals">Visual
+            explorations</a><a href="#about">About</a><a href="#experience">Experience</a></nav>
+        <div class="nav-right"><a class="btn btn-primary" href="#contact">Let's talk <span class="arrow">↗</span></a>
+            <button class="menu-button" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="mobileMenu">☰
+            </button>
+        </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation"><a href="#work">Work</a><a href="#visuals">Visual
+        explorations</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a><a
+            href="Samar_Shamloo_Resume.pdf" download>Download résumé ↓</a></nav>
+</header>
+<main id="top">
+    <section class="wrap hero" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+            <div class="availability"><span class="pulse" aria-hidden="true"></span> Product designer</div>
+            <h1 id="heroTitle">Complex<br>made <em>clear.</em><br>Beautifully.</h1>
+            <p class="hero-deck">Hi, I'm <strong>Samar Shamloo</strong>. I design digital products that make complicated
+                journeys feel simple, from enterprise telecom to AI-powered experiences.</p>
+            <div class="hero-actions"><a class="btn btn-primary" href="#work">Explore my work <span
+                    class="arrow">↘</span></a><a class="btn btn-outline" href="Samar_Shamloo_Resume.pdf"
+                                                 download>Download résumé <span class="arrow">↓</span></a></div>
+            <div class="micro-proof">
+                <div><strong>5+ yrs</strong><span>Product design<br>experience</span></div>
+                <div><strong>20+</strong><span>Web &amp; mobile<br>projects</span></div>
+                <div><strong>0→1</strong><span>From concept to<br>handoff</span></div>
+            </div>
+        </div>
+        <div class="hero-art" aria-label="A collage of Samar's interface design explorations">
+            <div class="art-bg"></div>
+            <div class="art-orbit"></div>
+            <div class="card-float card-float-a">
+                <div class="fallback-tile">Ukiyo / 01</div>
+                <img referrerpolicy="no-referrer"
+                     src="./img/d-ukiyo.jpg"
+                     alt="Ukiyo movie ticket booking design concept" onerror="this.remove()"></div>
+
+            <div class="card-float card-float-b">
+                <div class="fallback-tile">Kydo / 02</div>
+                <img referrerpolicy="no-referrer"
+                     src="./img/d-kydo.jpg"
+                     alt="Kydo Reader concept" onerror="this.remove()"></div>
+            <div class="card-float card-float-c">
+                <div class="fallback-tile">Metanoir</div>
+                <img referrerpolicy="no-referrer" src="./img/d-nft.jpg"
+                     alt="Metanoir dashboard interface concept" onerror="this.remove()"></div>
+            <div class="floating-note"><b>Design is how it works.</b>Thoughtful down to the details.</div>
+        </div>
+    </section>
+    <div class="trust">
+        <div class="wrap trust-inner">
+            <div class="trust-label">Across Teams<br/>& Products</div>
+            <div class="client-list" aria-label="Selected collaborators"><span>Irancell</span><span>MAHAK</span><span>MCI</span><span>ByGiraffe</span><span>Aecorn</span>
+            </div>
+        </div>
+    </div>
+    <section class="wrap section" id="work">
+        <div class="section-top">
+            <div>
+                <div class="eyebrow"><span class="num-prefix">01 /</span> Selected work</div>
+                <h2>Case Studies</h2>
+            </div>
+        </div>
+        <div class="product-grid">
+            <article class="product-card" data-case="irancell">
+                <div class="product-art irancell">
+                    <!--<span class="pa-label">Enterprise experience design</span>-->
+                    <img src="img/irancell-1.png"/>
+                </div>
+                <div class="product-copy">
+                    <div class="project-meta">Irancell · Telecom</div>
+                    <h3>Redesigning a loan journey where only 0.42% of users received a loan.</h3>
+                    <p>Redesigning Irancell’s digital loan experience to address major user drop-off points and simplify a complex, multi-step application journey. Restructuring key flows, improving eligibility and payment clarity, and designing clearer guidance, error recovery, and application status experiences to help users navigate the process with greater confidence.</p>
+                    <div class="card-bottom">
+                        <div class="tag-list">
+                            <span class="tag">Journey design</span>
+                            <span class="tag">Checkout UX</span>
+                        </div>
+                        <button class="open-detail" type="button">Explore contribution ↗</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-art ai">
+                    <!--<span class="pa-label">AI-enabled mobile product</span>-->
+                    <img src="img/bygiraffe-1.png"/>
+                </div>
+                <div class="product-copy">
+                    <div class="project-meta">ByGiraffe · AI / 0→1</div>
+                    <h3>An AI stylist, built from zero.</h3>
+                    <p>Owning end-to-end design for a personal styling assistant, spanning onboarding, preferences,
+                        outfit matching, and recommendations across 111 screens.</p>
+                    <div class="card-bottom">
+                        <div class="tag-list"><span class="tag">0→1 product</span><span
+                                class="tag">Usability testing</span></div>
+                        <button class="open-detail" type="button" data-case="bygiraffe">Explore contribution ↗</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-art mahak">
+                    <!--<span class="pa-label">Purpose-driven mobile experience</span>-->
+                    <img src="img/mahak-1.png"/>
+                </div>
+                <div class="product-copy">
+                    <div class="project-meta">MAHAK · Nonprofit</div>
+                    <h3>From a donation website to an engaging digital experience.</h3>
+                    <p>Reimagining campaign creation as guided steps, improving homepage hierarchy, and designing new
+                        personalized digital-greeting experiences.</p>
+                    <div class="card-bottom">
+                        <div class="tag-list"><span class="tag">Information architecture</span><span class="tag">Mobile UX</span>
+                        </div>
+                        <button class="open-detail" type="button" data-case="mahak">Explore contribution ↗</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="more-work">
+            <article class="work-mini">
+                <div class="eyebrow">Analytics / real estate</div>
+                <h3>Aecorn</h3>
+                <p>Designing understandable market reports, property and data visualizations, and a comparable-sales valuation
+                    experience.</p></article>
+            <article class="work-mini">
+                <div class="eyebrow">Research-led service UX</div>
+                <a href="https://kichichi.co/" target="_blank">
+                    <h3>Kichichi ↗</h3>
+                </a>
+                <p>Interviews, surveys, card sorting, and tree testing to define cross-border service flows and
+                    information architecture.</p></article>
+            <article class="work-mini">
+                <div class="eyebrow">Scheduling / booking</div>
+
+                <a href="https://retime.so/" target="_blank">
+                    <h3>Retime ↗</h3>
+                </a>
+
+                <p>Designing booking prototypes for shareable scheduling links and time-zone-aware experiences.</p>
+            </article>
+        </div>
+    </section>
+    <section class="visual-area" id="visuals">
+        <div class="wrap">
+            <div class="section-top">
+                <div>
+                    <div class="eyebrow"><span class="num-prefix">02 /</span> Selected visual explorations</div>
+                    <h2>Dribbble Highlights</h2>
+                </div>
+            </div>
+            <div class="visual-grid">
+                <a class="visual-card" target="_blank" rel="noopener noreferrer"
+                   href="https://dribbble.com/shots/19423661-Ukiyo-cinema-ticket">
+                    <div class="visual-img"><span class="fallback-title">Ukiyo.</span>
+                        <img loading="lazy"
+                                                                                           referrerpolicy="no-referrer"
+                                                                                           onerror="this.remove()"
+                                                                                           src="./img/d-ukiyo.jpg"
+                                                                                           alt="Ukiyo cinema ticket booking visual exploration">
+                    </div>
+                    <div class="visual-info">
+                        <div><h3>Ukiyo</h3>
+                            <p>Cinema ticket booking · Mobile concept</p></div>
+                        <span class="out">↗</span></div>
+                </a>
+                <a class="visual-card" target="_blank" rel="noopener noreferrer"
+                   href="https://dribbble.com/shots/18467616-Kydo-Reader">
+                    <div class="visual-img"><span class="fallback-title">Kydo.</span><img loading="lazy"
+                                                                                          referrerpolicy="no-referrer"
+                                                                                          onerror="this.remove()"
+                                                                                          src="./img/d-kydo.jpg"
+                                                                                          alt="Kydo Reader app visual exploration">
+                    </div>
+                    <div class="visual-info">
+                        <div><h3>Kydo Reader</h3>
+                            <p>Children's reading · App concept</p></div>
+                        <span class="out">↗</span></div>
+                </a>
+                <a class="visual-card" target="_blank" rel="noopener noreferrer"
+                   href="https://dribbble.com/shots/17827246-Metanoir-NFT-Dashboard">
+                    <div class="visual-img"><span class="fallback-title">Metanoir.</span><img loading="lazy"
+                                                                                              referrerpolicy="no-referrer"
+                                                                                              onerror="this.remove()"
+                                                                                              src="./img/d-nft.jpg"
+                                                                                              alt="Metanoir NFT dashboard visual exploration">
+                    </div>
+                    <div class="visual-info">
+                        <div><h3>Metanoir</h3>
+                            <p>NTF dashboard · UI concept</p></div>
+                        <span class="out">↗</span></div>
+                </a>
+                <a class="visual-card" target="_blank" rel="noopener noreferrer"
+                   href="https://dribbble.com/shots/18299058-Bridge-sign-language-platform">
+                    <div class="visual-img"><span class="fallback-title">Bridge.</span><img loading="lazy"
+                                                                                            referrerpolicy="no-referrer"
+                                                                                            onerror="this.remove()"
+                                                                                            src="./img/d-bridge.jpg"
+                                                                                            alt="Bridge sign language education platform concept">
+                    </div>
+                    <div class="visual-info">
+                        <div><h3>Bridge</h3>
+                            <p>Sign-language learning · Website concept</p></div>
+                        <span class="out">↗</span></div>
+                </a>
+            </div>
+
+            <a href="https://dribbble.com/samarsh" rel="noopener noreferrer" target="_blank" class="all-shots">See all
+                shots on Dribbble <span>↗</span></a></div>
+    </section>
+    <section class="wrap section" id="about">
+        <div class="about-grid">
+            <div class="about-copy">
+                <div class="eyebrow">
+                    <span class="num-prefix">03 /</span> A little about me
+                </div>
+                <!--<h2>Serious about details.</h2>-->
+
+                <h2><b>I'm Samar Shamloo</b></h2>
+                <p>I work across the entire design process, from finding the real problem to shaping usable interfaces
+                    and supporting development. My background spans telecom, nonprofit, real estate, fintech, and
+                    AI.</p>
+                <p>I care about the moments that are easy to overlook: a confusing form, an unclear next step, an error
+                    message, or a navigation decision. Small decisions can shape the whole experience.</p>
+                <div class="approach-list">
+                    <div class="approach-row"><strong>Understand</strong><span>User and stakeholder interviews, discovery, research, context</span>
+                    </div>
+                    <div class="approach-row"><strong>Structure</strong><span>Information architecture, journey mapping, user flows</span>
+                    </div>
+                    <div class="approach-row"><strong>Make &amp; test</strong><span>Prototyping, interaction design, usability testing, iteration</span>
+                    </div>
+                    <div class="approach-row"><strong>Deliver</strong><span>Design systems, accessibility, practical developer handoff</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-portrait"><img class="portrait-img" alt="Samar Shamloo — original profile photo"
+                                             src="data:image/jpeg;base64,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">
+                <div class="type-overlay"><span>From the first question to the final interaction.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="wrap section experience" id="experience">
+        <div class="section-top">
+            <div>
+                <div class="eyebrow"><span class="num-prefix">04 /</span> Background</div>
+                <h2>Work Experience</h2></div>
+            <!--<p>Cross-functional product design experience across multiple industries, delivery environments, and product
+                maturities.</p>-->
+        </div>
+        <div class="exp-main">
+            <div class="exp-date">Apr 2021 — Present</div>
+            <div class="exp-detail"><h3>DeXign Studio</h3>
+                <div class="exp-role">Product Designer</div>
+                <p>End-to-end product design for enterprise and startup clients, working through research, information
+                    architecture, UI, prototyping, usability testing, design systems, and developer handoff.</p></div>
+        </div>
+        <div class="credentials">
+            <div><h3>Mentorship</h3>
+                <p>UX/UI Education Mentor<br><strong>DeXign Academy</strong> · Two cohorts</p></div>
+            <div><h3>Education</h3>
+                <p><strong>Master's in Business Administration</strong><br>Arak Islamic Azad University, 2016–2018</p>
+            </div>
+            <div><h3>Bachelor's Degree</h3>
+                <p><strong>Bachelor's in Information Technology</strong><br>Arak Islamic Azad University, 2011–2015</p>
+            </div>
+        </div>
+    </section>
+    <section class="contact-block" id="contact">
+        <div class="wrap contact-inside">
+            <div class="eyebrow">Have an interesting product challenge?</div>
+            <h2>Let's make something<br><em>meaningful.</em></h2>
+            <p>Open to conversations about product design, research-led UX, and thoughtful digital experiences.</p>
+            <div class="contact-actions">
+                <a class="btn btn-primary" href="mailto:samarshamlo@gmail.com?subject=Product%20Design%20Opportunity">Email me <span class="arrow">↗</span></a>
+                <a class="btn btn-white" href="https://www.linkedin.com/in/samar-shamloo-7a2a7b1b5/" target="_blank" rel="noopener noreferrer">LinkedIn <span
+                    class="arrow">↗</span></a><a class="btn btn-outline" href="Samar_Shamloo_Resume.pdf"
+                                                 download>Résumé <span class="arrow">↓</span></a></div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <div class="wrap footer-inner"><a class="wordmark" href="#top"><span class="wm-dot">S</span> samar.</a><small>©
+        <span id="year">2026</span> Samar Shamloo.</small>
+        <div class="footer-links">
+            <a href="mailto:samarshamlo@gmail.com">Email</a>
+            <a href="https://dribbble.com/samarsh" rel="noopener noreferrer" target="_blank">Dribbble</a>
+            <a href="https://www.linkedin.com/in/samar-shamloo-7a2a7b1b5/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+<dialog class="case-dialog" id="case-irancell" aria-labelledby="case-title-irancell">
+    <div class="dialog-head">
+        <button class="dialog-close" type="button" aria-label="Close case study">×</button>
+        <div class="eyebrow">Telecom / Irancell</div>
+    </div>
+        <!--<p>Simplifying high-friction request and purchase journeys within an established ecosystem.</p></div>-->
+
+    <div class="dialog-body">
+        <h2 id="case-title-irancell">Redesigning a loan journey where only 0.42% of users received a loan</h2>
+
+        <img src="img/irancell-1.png" width="100%" />
+
+
+        <p class="meta">
+            <span><strong>Role:</strong> Product Designer (flow, structure &amp; UI)</span>
+            <span><strong>Scope:</strong> UX &amp; UI</span>
+            <span><strong>Team:</strong> Atefeh Safari (Product Manager), Arash Asghari (Visual Designer), Bahar Hajavi (Product Designer)</span>
+            <span><strong>Status:</strong> In development</span>
+        </span>
+
+        <hr />
+
+        <h3>Context</h3>
+        <p>Irancell's digital lending product lets users get a loan and spend it on purchases, including on Irancell Marketplace, which makes it valuable for both users and the business. But the product wasn't attracting its target customers: the earlier design left the journey complex, with high drop-off at several stages. The goal was to <strong>cut drop-off and raise conversion, quickly</strong>, within Irancell's design system.</p>
+
+        <hr />
+
+        <h4>The problem</h4>
+        <p><strong class="stat">56,129</strong> users entered. <strong class="stat">238</strong> received a loan: <strong class="stat">0.42%</strong>. The drop-off was spread across three places, and not all of it was ours to fix:</p>
+
+        <ul>
+            <li>
+                <p><strong>Before choosing a loan: ~23,738 users (~42%).</strong> Of ~24,500 users at step zero, only ~500 had arrived in the last three days, so we counted the rest as dropped.</p>
+            </li>
+            <li>
+                <p><strong>Credit validation: 13,599 rejected, 6,039 stuck waiting, 5,780 cancelled.</strong> Some of this is genuine credit rejection, outside design's reach. But some isn't: users who never came back for the result, or who just wanted a free credit check.</p>
+            </li>
+            <li>
+                <p><strong>Guarantee cheque: 3,934 users entered, only 47 reached contract signing.</strong></p>
+            </li>
+        </ul>
+        <p class="note"><em>This data was provided to us by Irancell's product team.</em></p>
+
+        <hr />
+
+        <h4>Approach: learn from the best, fix what matters most</h4>
+        <p><strong>I studied the loan journeys of leading lending services, such as Snapp Pay, DigiPay and TechnoPay, to bring Irancell's flow closer to patterns users already know.</strong> Three things stood out:</p>
+        <ul>
+            <li>
+                <p><strong>Users never have to guess.</strong> The process is explained clearly at every step.</p>
+            </li>
+            <li>
+                <p><strong>Automation and information at the point of need</strong>, like OTP and collecting details only when required. Even asking for a birth date was simpler.</p>
+            </li>
+            <li>
+                <p><strong>Transparent loan plans:</strong> installment, total repayment and the <strong>subscription fee</strong> shown upfront. In Irancell's flow, users only learned about the subscription at the very last step.</p>
+            </li>
+        </ul>
+        <p><strong>Then I fixed high-impact problems before polishing the UI.</strong> In phase one I started with what hurt conversion most and took the least effort to change: the places where the experience was broken and users were being lost. I designed both the <strong>structure and the UI of the core screens</strong> myself. Visual refinement came in stages afterward, and competitor extras were left until we reached a solid minimal experience.</p>
+
+        <img src="./img/mtn/913.png" />
+
+        <hr>
+
+        <h4>What I did</h4>
+
+        <h5>1. Before choosing a loan: ~23,738 users</h5>
+        <p><strong>Why users dropped:</strong> The old flow asked for <strong>national ID, birth date, postal code and landline</strong> before users had seen a single plan. The loan cards showed only a bank name, a loan type and an amount, and anything more meant opening a details page. Users were asked to give information with nothing in return, and couldn't compare anything.</p>
+        <p><strong>What I did:</strong></p>
+        <ul>
+            <li><strong>Loans first, personal information later.</strong> Users see their plans before being asked for anything, and I collect details only at the point they're needed.</li>
+            <li><strong>Plan cards that say everything:</strong> bank, profit, fee, subscription fee and total repayment on the card, with <strong>chips for subscription and guarantee type</strong> that open the details. Users learn upfront that the loan needs a subscription, instead of discovering it at the last step.</li>
+            <li><strong>A home screen that reads as a starting point.</strong> I replaced the wallet balance of "0", which feels like a loss, with a prompt to choose a plan, and added a notifications section.</li>
+            <li><strong>An easier way in:</strong> imagery that explains the loan's benefits, automatic OTP, and a rebuilt birth-date field.</li>
+        </ul>
+
+        <img src="img/mtn/911.png" />
+
+        <hr />
+
+        <h5>2. Credit validation: 13,599 rejected, 6,039 waiting, 5,780 cancelled</h5>
+        <p><strong>Why users dropped:</strong> The old screens showed a pointless credit-check fee, gave a rating with little explanation, and said "we can't serve you now" on a rejection. The "up to 24 hours" wait was usually far longer than the check took, and when the credit-scoring system was down, users were never told.</p>
+        <p><strong>What I did:</strong></p>
+        <ul>
+            <li><strong>Explained what's being checked:</strong> repayment history, returned-cheque status and bank transaction balance.</li>
+            <li>
+                <strong>Made every outcome clear and actionable:</strong>
+                <ul>
+                    <li>Qualified: shows the rating and the chosen plan, and users continue.</li>
+                    <li>Rating too low: says a higher rating is needed.</li>
+                    <li>Mid rating: <strong>offers a smaller loan as an alternative plan</strong>, a hook so the user isn't lost.</li>
+                </ul>
+            </li>
+            <li><strong>Communicated system outages</strong> instead of hiding them behind a vague wait.</li>
+            <li><strong>Removed the "0 Rial" fee.</strong></li>
+        </ul>
+
+        <img src="img/mtn/912.png" />
+
+        <hr />
+
+        <h5>3. Guarantee cheque: 3,934 users, 47 reached signing</h5>
+        <p><strong>Why users dropped:</strong> One very long page, a pile of fields, and no guidance.</p>
+        <p><strong>What I did: I redesigned the cheque experience around clarity</strong>, and <strong>Bahar later restructured it into three steps (cheque image, Sayad registration, physical delivery) and refined it further.</strong></p>
+        <p>My part:</p>
+        <ul>
+            <li><strong>The physical cheque requirements, presented visually</strong> and cleanly, so users could read them in full</li>
+            <li><strong>Easier fields</strong> for entering cheque information</li>
+            <li><strong>Copy buttons</strong> beside the details users must carry into the Sayad system, and the postal details for express delivery</li>
+            <li><strong>Clear reasons when a cheque is accepted or rejected</strong>, so users know what to fix</li>
+        </ul>
+
+        <img src="img/mtn/914.png" />
+
+        <hr />
+
+        <h5>Across the whole journey</h5>
+        <ul>
+            <li><strong>One clear task per step</strong>, the principle I designed around.</li>
+            <li><strong>Errors users can recover from:</strong> a human message that explains the cause and what to do, with the typed data preserved.</li>
+            <li><strong>A confirmation checkbox</strong> where users must have certain items to continue, so anyone who doesn't qualify stops early instead of wasting time and costing Irancell money.</li>
+            <li><strong>A profile</strong> (my information, my requests, transactions, guide, FAQ, rules, logout) and <strong>push notifications</strong>, because SMS alone is unreliable. Logout used to throw users out of the flow.</li>
+        </ul>
+
+        <img src="img/mtn/935.png" />
+        <img src="img/mtn/915.png" />
+
+        <hr />
+
+        <h5>Outcome</h5>
+        <p><strong>The result is a loan journey built around clarity, less friction and user confidence.</strong></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Before</th>
+                <th>After</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Information requested before users could even see a loan</td>
+                <td>Loans first, personal information only at the point it's needed</td>
+            </tr>
+            <tr>
+                <td>Subscription fee discovered at the last step</td>
+                <td>Fee shown upfront, on the plan itself</td>
+            </tr>
+            <tr>
+                <td>"You don't qualify," with no reason</td>
+                <td><strong>Predictable statuses</strong> and explained rejection reasons</td>
+            </tr>
+            <tr>
+                <td>One very long, error-prone cheque page</td>
+                <td>A guarantee cheque process with <strong>one clear task per step</strong></td>
+            </tr>
+            <tr>
+                <td>Errors that threw users back to the start</td>
+                <td><strong>Errors users can recover from without starting over</strong></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</dialog>
+
+<dialog class="case-dialog" id="case-bygiraffe" aria-labelledby="case-title-bygiraffe">
+    <div class="dialog-head">
+        <button class="dialog-close" type="button" aria-label="Close case study">×</button>
+        <div class="eyebrow">AI Assist / ByGiraffe</div>
+    </div>
+
+    <div class="dialog-body">
+        <h2 id="case-title-bygiraffe">An AI stylist, built from zero</h2>
+
+        <img src="img/bygiraffe-1.png" width="100%" />
+
+        <div class="meta">
+            <span><strong>Role:</strong> Product Designer</span>
+            <span><strong>Platform:</strong> Mobile App</span>
+            <span><strong>Timeline:</strong> 4 Months</span>
+            <span><strong>Scope:</strong> Product Discovery, UX/UI Design, Wireframing, Design System</span>
+            <span><strong>Deliverables:</strong> 111+ Screens</span>
+        </div>
+
+        <hr />
+
+        <section>
+            <h3>Context</h3>
+            <p>BYGiraffe is an AI-powered fashion assistant designed to help users discover their personal style, explore fashion items, and find pieces that work well together.</p>
+            <p>The product brings style discovery, personalized shopping recommendations, and AI-assisted styling into one mobile experience.</p>
+        </section>
+
+        <hr />
+
+        <section>
+            <h3>The Challenge</h3>
+            <p>Finding clothes that match personal preferences and putting together a complete look can be overwhelming. Users may know what they like, but still need guidance when choosing complementary items or exploring new styles.</p>
+            <p>The goal was to create an experience that helps users understand their style preferences and use them throughout their shopping journey.</p>
+        </section>
+
+        <hr />
+
+        <section>
+            <h3>Product Discovery &amp; Competitive Analysis</h3>
+            <p>I reviewed and refined the initial PRD, helping clarify product features and user journeys. I also conducted competitor research to understand existing solutions, identify common patterns, and explore opportunities for BYGiraffe.</p>
+            <p>The analysis covered six products — Acloset, Style DNA, Whering, Gensmo, Aiuta, and Pinterest — across ten key dimensions, including personal style recommendations, image recognition, digital closet management, content creation, and AI integration.</p>
+            <p>One opportunity identified in our comparison was the potential to bring style discovery, product recommendations, and outfit completion together in a more connected shopping experience.</p>
+        </section>
+
+        <img src="img/bygiraffe/sc.png" />
+        <hr />
+
+        <section>
+            <h3>Approach</h3>
+            <p>The experience was structured around three key stages:</p>
+            <ol>
+                <li><strong>Discover Your Style</strong> — Understand users’ preferences through visual onboarding.</li>
+                <li><strong>Explore &amp; Personalize</strong> — Help users discover relevant products and complementary items.</li>
+                <li><strong>Style with Confidence</strong> — Offer outfit previews and accessible AI styling assistance.</li>
+            </ol>
+        </section>
+
+        <hr />
+
+        <section>
+            <h3>What I Did</h3>
+
+            <section>
+                <h4>1. Product Structure &amp; Wireframing</h4>
+                <p>I mapped the core user journeys and translated the product requirements into structured flows and wireframes. This helped define the main interactions and establish a consistent foundation before moving into visual design.</p>
+            </section>
+
+            <img src="img/bygiraffe/936.png" />
+            <hr />
+
+            <section>
+                <h4>2. Style Discovery &amp; Personal Profile</h4>
+                <p>I designed a visual onboarding experience where users could select images that reflect their fashion preferences. These selections helped shape a personal style profile and informed the recommendations shown throughout the app.</p>
+                <p>The experience also included style inspiration through suggested celebrity looks.</p>
+            </section>
+
+            <img src="img/bygiraffe/937.png" />
+            <hr />
+
+            <section>
+                <h4>3. Personalized Shopping &amp; Complete Your Style</h4>
+                <p>I designed a personalized product discovery experience based on users’ style preferences.</p>
+                <p>The Complete Your Style feature helped users find complementary items around a selected product. For example, after choosing a T-shirt, users could explore matching trousers, shoes, and bags to complete the look.</p>
+            </section>
+
+            <img src="img/bygiraffe/938.png" />
+            <hr />
+
+            <section>
+                <h4>4. Avatar-Based Outfit Preview</h4>
+                <p>I designed an outfit preview experience using two predefined avatars — one male and one female. Users could preview selected clothing items on the corresponding avatar and explore how different pieces work together.</p>
+            </section>
+
+            <img src="img/bygiraffe/939.png" />
+            <hr />
+
+            <section>
+                <h4>5. AI Styling Assistant</h4>
+                <p>I designed AI Giraffe as a floating entry point that remained accessible across different app screens. This allowed users to open the assistant from various parts of the experience and ask questions related to fashion and styling.</p>
+            </section>
+
+            <img src="img/bygiraffe/940.png" />
+            <hr />
+
+            <section>
+                <h4>6. Visual Language &amp; Design System</h4>
+                <p>I developed a minimal visual language and a reusable design system to maintain consistency across the product. Components and interface patterns were designed to support a cohesive experience across more than 110 screens.</p>
+            </section>
+
+            <img src="img/bygiraffe/941.png" />
+            <hr />
+        </section>
+
+        <section>
+            <h3>Outcome</h3>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Initial Need</th>
+                    <th>Designed Experience</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Understanding personal style preferences</td>
+                    <td>Visual onboarding and personal style profiles</td>
+                </tr>
+                <tr>
+                    <td>Finding relevant fashion items</td>
+                    <td>Personalized product discovery</td>
+                </tr>
+                <tr>
+                    <td>Completing a look around a selected item</td>
+                    <td>Complementary product suggestions</td>
+                </tr>
+                <tr>
+                    <td>Exploring how clothing pieces work together</td>
+                    <td>Avatar-based outfit previews</td>
+                </tr>
+                <tr>
+                    <td>Accessing styling guidance throughout the app</td>
+                    <td>Floating AI Giraffe assistant</td>
+                </tr>
+                <tr>
+                    <td>Maintaining consistency across a large product</td>
+                    <td>Reusable design system</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</dialog>
+
+<dialog class="case-dialog" id="case-mahak" aria-labelledby="case-title-mahak">
+    <div class="dialog-head">
+        <button class="dialog-close" type="button" aria-label="Close case study">×</button>
+        <div class="eyebrow">Nonprofit / Mahak</div>
+    </div>
+
+    <div class="dialog-body">
+        <h2>From a donation website to an engaging digital experience</h2>
+
+        <img src="img/mahak-1.png" width="100%" />
+
+        <p class="meta">
+            <span><strong>Role:</strong> Product Designer</span>
+            <span><strong>Duration:</strong>9 months</span>
+            <span><strong>Focus:</strong> UX, UI, Information Architecture, UX Writing</span>
+            <span><strong>Team:</strong> Atefeh Safari (Product Manager)</span>
+            <span><strong>Status:</strong> Live</span>
+        </p>
+
+        <hr />
+
+        <h3>Context</h3>
+        <p>Mahak is a <strong>charity</strong> whose app was built mainly around financial giving and direct donations. The goal was to make the experience <strong>more appealing and understandable for younger users</strong>, and to give people more ways to learn about Mahak's work and support it. The app has ~240K installs.</p>
+
+        <hr />
+
+        <h4>The problem</h4>
+        <p>The app did one thing, accept donations, and several things held people back:</p>
+        <ul>
+            <li><strong>The navigation and product sections weren't self-explanatory.</strong></li>
+            <li>Users could create campaigns but <strong>often didn't know how to reach the campaign's goal.</strong></li>
+            <li>The <strong>long campaign form</strong> made the process hard.</li>
+            <li>Users couldn't easily see <strong>where their donations went or what impact they had.</strong></li>
+            <li><strong>Product language, messages and states</strong> needed to be clearer and more human.</li>
+            <li>A <strong>static, repetitive homepage</strong> gave little reason to come back.</li>
+        </ul>
+
+        <hr />
+
+        <h3>Approach</h3>
+        <p><strong>I restructured the experience around the actions users needed most, instead of exposing every feature equally,</strong> and widened what "supporting Mahak" could mean: <strong>donate, campaign, stories, Empathy Cards, B2B partnerships.</strong></p>
+
+        <img src="img/mahak/922.png" />
+        <hr />
+
+        <h3>What I did</h3>
+
+        <h4>1. Navigation: a clearer structure and visible impact</h4>
+        <p><strong>Why users struggled:</strong> The main menu didn't make the sections or their priority clear, and users couldn't tell where their money went.</p>
+        <p><strong>What I did:</strong></p>
+        <ul>
+            <li><strong>I rethought the main menu.</strong> The bottom navigation went from <em>Home, Projects, Support, Campaign, Account</em> to <strong>Home, Cash Support, Me &amp; Mahak</strong>. <strong>I moved campaigns out of the bottom menu</strong>, since visibility alone wasn't helping users understand them.</li>
+            <li><strong>I renamed "Projects" to "Where your donations go"</strong>, so users see where their money is spent and trust grows.</li>
+            <li>Cash support already had a clear visual presence, so the change was in <strong>priority and structure</strong>, not in introducing it again.</li>
+        </ul>
+
+        <img src="img/mahak/927.png" />
+        <hr />
+
+        <h4>2. Campaign creation: from a long form to a finishable flow</h4>
+        <p><strong>Why users struggled:</strong> A long, one-page form, and users didn't know how to take a campaign to its goal.</p>
+        <p><strong>What I did:</strong></p>
+        <ul>
+            <li><strong>I turned the form into three guided steps</strong>, with a progress indicator, and <strong>pre-selected an urgent-support project</strong> so starting was easier, while keeping the option to change it.</li>
+            <li><strong>I clarified what a campaign is and how to introduce it</strong>, working with UX writing.</li>
+            <li><strong>I designed feedback for rejected campaigns</strong>, so users learn why, respectfully: understandable reasons (such as an unsuitable goal, misleading content or a policy conflict), the notification text, the path to the admin's feedback, an optional explanation, and the decision's status and history.</li>
+        </ul>
+
+        <img src="img/mahak/928.png" />
+        <hr />
+
+        <h4>3. A homepage that feels alive</h4>
+        <p><strong>Why users struggled:</strong> The old homepage was long, repetitive and hard to scan.</p>
+        <p><strong>What I did: I redesigned it from static to dynamic</strong>: clear, purpose-driven sections, less repetitive and low-priority content, dynamic content and card-based previews, a clearer hierarchy and CTAs, and a more scannable layout. It now connects what Mahak does, how users take part, and how they can give.</p>
+
+        <img src="img/mahak/929.png" />
+        <hr />
+
+        <h4>4. Communication that sounds human</h4>
+        <p><strong>Why users struggled:</strong> The tone was formal and distant, and messages and states were unclear.</p>
+        <p><strong>What I did:</strong></p>
+        <ul>
+            <li><strong>I rewrote and designed the UX writing</strong> for key flows, notifications, popups, error messages and empty states.</li>
+            <li><strong>I designed the logic for when to ask for notification permission, and it's largely live: notifications are now sent following these patterns.</strong> The system request appears after a meaningful interaction rather than at first launch, within the first 24 to 72 hours, with a cap on how often it's shown, re-asked only at the right moments, and with events defined to measure its performance.</li>
+        </ul>
+
+        <img src="img/mahak/930.png" />
+        <hr />
+
+        <h4>5. Empathy Cards: a familiar gesture, made easier</h4>
+        <p>Mahak's website already offered condolence and congratulation cards, in the spirit of its physical stands. <strong>I reimagined the idea for the app: easier to use, more modern, and flexible enough for many different occasions.</strong></p>
+        <p>I designed the flow: <span class="flow">choose a card → personalize sender and recipient → send → pay → optional donation</span>. It links an everyday emotional need to a chance to support Mahak, and creates a <strong>new donation touchpoint</strong>.</p>
+
+        <img src="img/mahak/931.png" />
+        <img src="img/mahak/932.png" />
+        <hr />
+
+        <h4>6. More ways to stay connected</h4>
+        <p><strong>I designed</strong> support reminders and return flows, sharing the app, referrals, a notifications section, profile improvements, engagement communications, and the visual design for <strong>B2B partnerships</strong>.</p>
+
+        <img src="img/mahak/933.png" />
+        <hr />
+
+        <h3>Outcome</h3>
+        <p><strong>The biggest shift: from simply asking users to donate, to giving them more ways to understand, engage with and support Mahak.</strong></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Before</th>
+                <th>After</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Unclear navigation and sections</td>
+                <td>A clear structure: <strong>Home, Cash Support, Me &amp; Mahak</strong></td>
+            </tr>
+            <tr>
+                <td>Unclear where money went</td>
+                <td><strong>"Where your donations go"</strong> makes impact visible</td>
+            </tr>
+            <tr>
+                <td>Long campaign form</td>
+                <td><strong>Three guided steps</strong> with progress</td>
+            </tr>
+            <tr>
+                <td>Rejected campaigns left users guessing</td>
+                <td><strong>Rejection feedback</strong> with reasons and history</td>
+            </tr>
+            <tr>
+                <td>Static, repetitive homepage</td>
+                <td>Dynamic, purpose-driven, scannable</td>
+            </tr>
+            <tr>
+                <td>Formal, distant tone</td>
+                <td>Human UX writing across the app</td>
+            </tr>
+            <tr>
+                <td>Donation was the only action</td>
+                <td>Donate, campaign, stories, Empathy Cards and more</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</dialog>
+<script>
+    (() => {
+        const menuBtn = document.getElementById('menuButton'), menu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            const open = menu.classList.toggle('open');
+            menuBtn.setAttribute('aria-expanded', String(open));
+            menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            menuBtn.textContent = open ? '×' : '☰'
+        });
+        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            menu.classList.remove('open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.textContent = '☰'
+        }));
+        document.querySelectorAll('[data-case]').forEach(btn => btn.addEventListener('click', () => {
+            const dialog = document.getElementById('case-' + btn.dataset.case);
+            if (dialog) {
+                dialog.showModal();
+                document.body.classList.add('dialog-open')
+            }
+        }));
+        document.querySelectorAll('dialog').forEach(d => {
+            d.querySelector('.dialog-close').addEventListener('click', () => d.close());
+            d.addEventListener('click', e => {
+                if (e.target === d) d.close()
+            });
+            d.addEventListener('close', () => document.body.classList.remove('dialog-open'))
+        });
+        document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+</script>
+</body>
+</html>
